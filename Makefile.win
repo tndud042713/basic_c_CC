@@ -1,0 +1,46 @@
+# Project: CC
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = 구구단출력.o "지수\ 연산.o" "최솟값\ 구하기.o" 홀수.o "동물의\ 수\ 구하기.o" 10부제.o 사과.o
+LINKOBJ  = 구구단출력.o "지수 연산.o" "최솟값 구하기.o" 홀수.o "동물의 수 구하기.o" 10부제.o 사과.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = CC.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+구구단출력.o: 구구단출력.cpp
+	$(CPP) -c 구구단출력.cpp -o 구구단출력.o $(CXXFLAGS)
+
+"지수\ 연산.o": 지수\ 연산.cpp
+	$(CPP) -c "지수 연산.cpp" -o "지수 연산.o" $(CXXFLAGS)
+
+"최솟값\ 구하기.o": 최솟값\ 구하기.cpp
+	$(CPP) -c "최솟값 구하기.cpp" -o "최솟값 구하기.o" $(CXXFLAGS)
+
+홀수.o: 홀수.cpp
+	$(CPP) -c 홀수.cpp -o 홀수.o $(CXXFLAGS)
+
+"동물의\ 수\ 구하기.o": 동물의\ 수\ 구하기.cpp
+	$(CPP) -c "동물의 수 구하기.cpp" -o "동물의 수 구하기.o" $(CXXFLAGS)
+
+10부제.o: 10부제.cpp
+	$(CPP) -c 10부제.cpp -o 10부제.o $(CXXFLAGS)
+
+사과.o: 사과.cpp
+	$(CPP) -c 사과.cpp -o 사과.o $(CXXFLAGS)
